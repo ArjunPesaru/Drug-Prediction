@@ -1,21 +1,3 @@
-import os
-import subprocess
-import sys
-
-# Install missing packages automatically
-required_packages = [
-    "streamlit", "joblib", "pandas", "numpy", "rdkit-pypi", 
-    "scikit-learn", "xgboost", "altair"
-]
-
-def install_missing_packages(packages):
-    for package in packages:
-        try:
-            __import__(package.split("-")[0])  # Check if package is already installed
-        except ImportError:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-install_missing_packages(required_packages)
 
 # Import necessary packages
 import streamlit as st
